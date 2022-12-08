@@ -8,24 +8,25 @@ import java.util.List;
 @Entity
 @Table(name = "passengers")
 public class Passenger {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private long id;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @Column(name = "email")
+    @Column
     private String email;
 
+
     @ManyToMany
-    @JoinTable(
+    @JoinTable (
             name = "passengers_flights",
             joinColumns = @JoinColumn(name = "passenger_id"),
-            inverseJoinColumns = @JoinColumn(name = "chocolate_id")
+            inverseJoinColumns = @JoinColumn(name = "flight_id")
     )
+
     @JsonIgnoreProperties({"passengers"})
     private List<Flight> flights;
 
@@ -37,11 +38,14 @@ public class Passenger {
 
     public Passenger() {
     }
+    // METHODS
 
-    public void addFlight( Flight flight) {
+    public void addFlight(Flight flight) {
         this.flights.add(flight);
     }
 
+
+    // GETTERS AND SETTERS
     public long getId() {
         return id;
     }
@@ -73,4 +77,113 @@ public class Passenger {
     public void setFlights(List<Flight> flights) {
         this.flights = flights;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column
+//    private long id;
+//
+//    @Column(name = "name")
+//    private String name;
+//
+//    @Column(name = "email")
+//    private String email;
+//
+//    @ManyToMany
+//    @JoinTable(
+//            name = "passengers_flights",
+//            joinColumns = @JoinColumn(name = "passenger_id"),
+//            inverseJoinColumns = @JoinColumn(name = "flight_id")
+//    )
+//    @JsonIgnoreProperties({"passengers"})
+//    private List<Flight> flights;
+//
+//    public Passenger(String name, String email) {
+//        this.name = name;
+//        this.email = email;
+//        this.flights = new ArrayList<>();
+//    }
+//
+//    public Passenger() {
+//    }
+//
+//    public void addFlight( Flight flight) {
+//        this.flights.add(flight);
+//    }
+//
+//    public long getId() {
+//        return id;
+//    }
+//
+//    public void setId(long id) {
+//        this.id = id;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
+//    public List<Flight> getFlights() {
+//        return flights;
+//    }
+//
+//    public void setFlights(List<Flight> flights) {
+//        this.flights = flights;
+//    }
 }
