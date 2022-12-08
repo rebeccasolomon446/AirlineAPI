@@ -38,6 +38,10 @@ public class Passenger {
     public Passenger() {
     }
 
+    public void addFlight( Flight flight) {
+        this.flights.add(flight);
+    }
+
     public long getId() {
         return id;
     }

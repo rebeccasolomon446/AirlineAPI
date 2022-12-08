@@ -40,6 +40,8 @@ public class Flight {
     public Flight() {
     }
 
+
+
     public long getId() {
         return id;
     }
